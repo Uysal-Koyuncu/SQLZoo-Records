@@ -1,3 +1,8 @@
+//https://stackoverflow.com/questions/7745609/sql-select-only-rows-with-max-value-on-a-column
+
+
+
+
 SELECT name, whn2, new FROM
 
   (
