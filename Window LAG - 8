@@ -1,0 +1,26 @@
+SELECT name, whn2, new FROM
+
+  (
+  SELECT
+  
+    name,
+    DATE_FORMAT(whn,'%Y-%m-%d') whn2,
+    new, 
+    RANK() OVER (PARTITION BY name ORDER BY new DESC) rank
+    FROM
+    
+    (
+      SELECT
+      name,
+      whn,
+      (confirmed - LAG(confirmed, 1) OVER (PARTITION BY name ORDER BY whn)
+      ) new
+      FROM covid
+    ) as ed
+    
+  WHERE new >= 1000
+  
+  ) as ed2
+  
+WHERE rank = 1
+ORDER BY whn2
