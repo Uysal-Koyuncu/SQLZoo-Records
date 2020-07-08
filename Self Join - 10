@@ -12,5 +12,5 @@ SELECT a.num, a.company, stopb.name, c.num, c.company
     JOIN stops stopb ON (b.stop=stopb.id)
     JOIN stops stopc ON (c.stop=stopc.id)
     JOIN stops stopd ON (d.stop=stopd.id)
-  WHERE stopa.name='Craiglockhart' AND stopd.name='Lochend
+  WHERE stopa.name='Craiglockhart' AND stopd.name='Lochend'
   
